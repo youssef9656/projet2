@@ -1,0 +1,327 @@
+:root {
+  --primary-color: #0056b3;
+  --secondary-color: #0056b3;
+  --accent-color: #3498db;
+  --light-accent: #f7f9fc;
+  --dark-gray: #2c3e50;
+  --text-color: #333333;
+  --light-text: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.brand-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-accent) 0%, #f0f8ff 100%);
+  padding: 0;
+}
+
+.brand-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.brand-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+.fade-in-delay-3 {
+  animation-delay: 0.6s;
+}
+.fade-in-delay-4 {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Main Logo Section */
+.main-logo-section {
+  margin-bottom: 64px;
+}
+
+.main-logo-card {
+  text-align: center;
+  border: 2px solid rgba(0, 86, 179, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.main-logo-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+.main-logo-container {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  padding: 48px;
+  margin-bottom: 32px;
+}
+
+.main-logo {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 86, 179, 0.1));
+  transition: var(--transition);
+}
+
+.main-logo:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 6px 20px rgba(0, 86, 179, 0.2));
+}
+
+.logo-description {
+  padding: 0 24px 24px;
+}
+
+/* Logo Variations */
+.logo-variations-section {
+  margin-bottom: 64px;
+}
+
+.logo-variation-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.logo-variation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+.logo-preview {
+  transition: var(--transition);
+}
+
+.logo-variation-card:hover .logo-preview {
+  transform: scale(1.02);
+}
+
+/* Brand Colors */
+.brand-colors-section {
+  margin-bottom: 64px;
+}
+
+.color-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.color-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.color-preview {
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.color-card:hover .color-preview {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.color-codes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.color-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Usage Guidelines */
+.usage-guidelines-section {
+  margin-bottom: 64px;
+}
+
+.guideline-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.guideline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+.guideline-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.guideline-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Downloads Section */
+.downloads-section {
+  margin-bottom: 32px;
+}
+
+.downloads-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 2px solid rgba(0, 86, 179, 0.1);
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.downloads-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brand-content {
+    padding: 32px 16px;
+  }
+
+  .main-logo-container {
+    padding: 32px 16px;
+  }
+
+  .main-logo {
+    max-width: 280px;
+  }
+
+  .color-codes {
+    gap: 6px;
+  }
+
+  .color-code {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-content {
+    padding: 24px 12px;
+  }
+
+  .main-logo-container {
+    padding: 24px 12px;
+  }
+
+  .main-logo {
+    max-width: 240px;
+  }
+
+  .guideline-rules {
+    gap: 8px;
+  }
+
+  .rule-item {
+    font-size: 12px;
+  }
+}
+
+/* Animation pour les éléments interactifs */
+.color-preview:hover,
+.logo-preview:hover {
+  cursor: pointer;
+}
+
+/* Effet de brillance sur le logo principal */
+.main-logo-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.main-logo-card:hover .main-logo-container::before {
+  left: 100%;
+}
+
+.main-logo-container {
+  position: relative;
+  overflow: hidden;
+}

@@ -1,0 +1,319 @@
+:root {
+  --primary-color: #0056b3;
+  --secondary-color: #0056b3;
+  --accent-color: #3498db;
+  --light-accent: #f7f9fc;
+  --dark-gray: #2c3e50;
+  --text-color: #333333;
+  --light-text: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.pourquoi-confiance-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-accent) 0%, #f0f8ff 100%);
+  padding: 0;
+}
+
+.pourquoi-confiance-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.pourquoi-confiance-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+.fade-in-delay-3 {
+  animation-delay: 0.6s;
+}
+.fade-in-delay-4 {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stats Section */
+.stats-section {
+  margin-bottom: 64px;
+}
+
+.stat-card {
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+  height: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+/* Garanties Section */
+.garanties-section {
+  margin-bottom: 64px;
+}
+
+.garantie-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.garantie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 86, 179, 0.15);
+  border-color: var(--accent-color);
+}
+
+.garantie-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.garantie-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.garantie-card:hover .garantie-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.garantie-points {
+  margin-top: 20px;
+}
+
+.point-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0;
+  transition: var(--transition);
+  padding: 4px 0;
+  border-radius: 4px;
+}
+
+.point-item:hover {
+  background: rgba(52, 152, 219, 0.05);
+  transform: translateX(8px);
+  padding-left: 8px;
+}
+
+/* Témoignages Section */
+.temoignages-section {
+  margin-bottom: 64px;
+}
+
+.temoignage-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.temoignage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+.temoignage-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.temoignage-rating {
+  margin: 12px 0;
+}
+
+.temoignage-commentaire {
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(0, 86, 179, 0.02);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.temoignage-projet {
+  margin-top: 12px;
+}
+
+/* Certifications Section */
+.certifications-section {
+  margin-bottom: 64px;
+}
+
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.certification-item {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 86, 179, 0.1);
+  transition: var(--transition);
+}
+
+.certification-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+  border-color: var(--accent-color);
+}
+
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.avantage-card {
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.avantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+  border-color: var(--accent-color);
+}
+
+.avantage-content {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pourquoi-confiance-content {
+    padding: 32px 16px;
+  }
+
+  .garantie-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .garantie-icon {
+    margin: 0 auto;
+  }
+
+  .temoignage-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .certification-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .avantage-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pourquoi-confiance-content {
+    padding: 24px 12px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .temoignage-commentaire {
+    padding: 8px;
+  }
+}

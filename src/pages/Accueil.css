@@ -1,0 +1,343 @@
+/* Reset et variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primary-blue: #4a90e2;
+  --secondary-blue: #5ba0f2;
+  --dark-blue: #2c5282;
+  --light-blue: #e8f4fd;
+  --white: #ffffff;
+  --dark-text: #333333;
+  --light-text: #666666;
+  --border-radius: 8px;
+}
+
+.accueil-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin-top: 80px;
+}
+
+.container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section-ifpe {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(61, 137, 223, 0.849) 0%, rgba(44, 83, 130, 0.164) 100%);
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.hero-text-content {
+  max-width: 600px;
+}
+
+.hero-main-title {
+  color: var(--white);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary-hero {
+  background: var(--secondary-blue);
+  border: none;
+  color: var(--white);
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: auto;
+}
+
+.btn-primary-hero:hover {
+  background: var(--primary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary-hero {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 13px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: auto;
+}
+
+.btn-secondary-hero:hover {
+  background: var(--white);
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+/* Domaines Section */
+.domaines-intervention-section {
+  background: var(--primary-blue);
+  padding: 80px 0;
+}
+
+.section-title-white {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.domaines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.domaine-card-wrapper {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.domaine-card-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.domaine-icon-container {
+  margin-bottom: 24px;
+}
+
+.domaine-icon-emoji {
+  font-size: 3.5rem;
+  display: block;
+}
+
+.domaine-card-title {
+  color: var(--dark-blue);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.domaine-card-description {
+  color: var(--light-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Pourquoi Section */
+.pourquoi-choisir-section {
+  background: var(--light-blue);
+  padding: 80px 0;
+}
+
+.pourquoi-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.pourquoi-section-title {
+  color: var(--primary-blue);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.avantages-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.avantage-item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avantage-check-icon {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.avantage-text {
+  color: var(--dark-text);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.pourquoi-visual-column {
+  min-height: 200px;
+}
+
+/* Contact Footer Section */
+.contact-footer-section {
+  background: #174377;
+  padding: 60px 0;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-label {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contact-value {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-main-title {
+    font-size: 3rem;
+  }
+
+  .pourquoi-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-main-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-content-wrapper {
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .hero-text-content {
+    max-width: 100%;
+  }
+
+  .section-title-white {
+    font-size: 2rem;
+  }
+
+  .domaines-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pourquoi-section-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .domaines-intervention-section,
+  .pourquoi-choisir-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-main-title {
+    font-size: 2rem;
+  }
+
+  .hero-buttons-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary-hero,
+  .btn-secondary-hero {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-title-white {
+    font-size: 1.8rem;
+  }
+
+  .domaine-card-wrapper {
+    padding: 30px 20px;
+  }
+}

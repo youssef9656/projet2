@@ -1,0 +1,216 @@
+/* Variables globales */
+:root {
+  --primary-color: #00085c;
+  --text-color: #333;
+  --subtext-color: #666;
+  --transition-speed: 0.3s;
+}
+
+/* Navbar de base */
+.app-header {
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-speed) ease;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* margin-top: 35px; */
+}
+
+.app-header.scrolled {
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  
+}
+
+/* Contenu de la navbar */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.logo-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-color);
+  line-height: 1;
+  transition: color var(--transition-speed) ease;
+}
+
+.logo-subtext {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--subtext-color);
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+/* Logo blanc quand pas scrollé */
+.app-header:not(.scrolled) .logo-text {
+  color: white;
+}
+
+/* Menu desktop */
+.desktop-menu {
+  display: flex;
+  font-weight: bold !important;
+}
+
+.desktop-menu .ant-menu-item {
+  padding: 0 15px;
+  margin: 0 5px;
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition-speed) ease;
+}
+
+.desktop-menu .ant-menu-item:hover {
+  border-bottom: 3px solid var(--primary-color);
+  color: var(--primary-color) !important;
+}
+
+.desktop-menu .ant-menu-item-selected {
+  border-bottom: 3px solid var(--primary-color);
+  color: var(--primary-color) !important;
+}
+
+.desktop-menu .ant-menu-submenu-title {
+  padding: 0 15px !important;
+  margin: 0 5px !important;
+}
+
+.desktop-menu .ant-menu-submenu:hover .ant-menu-submenu-title,
+.desktop-menu .ant-menu-submenu-selected .ant-menu-submenu-title {
+  color: var(--primary-color) !important;
+}
+
+/* Animation des liens */
+.ant-menu-item {
+  transition: all var(--transition-speed) ease !important;
+}
+
+.ant-menu-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Bouton menu mobile */
+.mobile-menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Barres du menu burger */
+.menu-icon-bar {
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-color);
+  transition: all var(--transition-speed) ease;
+  transform-origin: left center;
+}
+
+.app-header:not(.scrolled) .menu-icon-bar {
+  background-color: white;
+}
+
+.menu-icon-bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(1px, -1px);
+}
+
+.menu-icon-bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon-bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(1px, 1px);
+}
+
+/* Menu mobile */
+.mobile-menu {
+  display: none;
+}
+
+/* Dropdown menu */
+.ant-menu-submenu-popup {
+  padding-top: 10px;
+}
+
+.ant-menu-submenu-popup .ant-menu {
+  padding: 10px 0;
+}
+
+.ant-menu-submenu-popup .ant-menu-item {
+  margin: 0;
+  padding: 8px 20px !important;
+  min-width: 250px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .header-content {
+    padding: 0 20px;
+  }
+
+  .desktop-menu .ant-menu-item {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .header-content {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-header {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .logo-subtext {
+    font-size: 12px;
+  }
+
+  .mobile-menu {
+    top: 60px !important;
+  }
+}

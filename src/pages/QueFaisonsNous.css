@@ -1,0 +1,325 @@
+:root {
+  --primary-color: #0056b3;
+  --secondary-color: #0056b3;
+  --accent-color: #3498db;
+  --light-accent: #f7f9fc;
+  --dark-gray: #2c3e50;
+  --text-color: #333333;
+  --light-text: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.que-faisons-nous-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-accent) 0%, #f6f0ff 100%);
+  padding: 0;
+}
+
+.que-faisons-nous-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.que-faisons-nous-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+.fade-in-delay-3 {
+  animation-delay: 0.6s;
+}
+.fade-in-delay-4 {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Activités Section */
+.activites-section {
+  margin-bottom: 64px;
+}
+
+.activite-card {
+  height: 100%;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.activite-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 86, 179, 0.15);
+  border-color: var(--accent-color);
+}
+
+.activite-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.activite-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activite-card:hover .activite-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.activite-progress {
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(0, 86, 179, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.activite-details {
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 8px 0;
+  transition: var(--transition);
+  padding: 4px 0;
+  border-radius: 4px;
+}
+
+.detail-item:hover {
+  background: rgba(52, 152, 219, 0.05);
+  transform: translateX(8px);
+  padding-left: 8px;
+}
+
+/* Méthodologie Section */
+.methodologie-section {
+  margin-bottom: 64px;
+}
+
+.methodologie-card {
+  padding: 32px;
+  border: 2px solid rgba(0, 86, 179, 0.1);
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.methodologie-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+.methodologie-etape {
+  text-align: center;
+  padding: 16px;
+  max-width: 200px;
+}
+
+/* Secteurs Section */
+.secteurs-section {
+  margin-bottom: 64px;
+}
+
+.secteurs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.secteur-item {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 86, 179, 0.1);
+  transition: var(--transition);
+}
+
+.secteur-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+  border-color: var(--accent-color);
+}
+
+.secteur-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.impact-card {
+  border: 2px solid rgba(0, 86, 179, 0.1);
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.impact-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+.chiffre-item {
+  text-align: center;
+  padding: 16px;
+  background: rgba(0, 86, 179, 0.02);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.chiffre-item:hover {
+  background: rgba(0, 86, 179, 0.05);
+  transform: translateY(-4px);
+}
+
+/* CTA Section */
+.cta-section {
+  margin-top: 64px;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 2px solid rgba(0, 86, 179, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: var(--transition);
+}
+
+.cta-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow);
+}
+
+.cta-mini-card {
+  width: 140px;
+  text-align: center;
+  border: 1px solid rgba(0, 86, 179, 0.2);
+  transition: var(--transition);
+}
+
+.cta-mini-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .que-faisons-nous-content {
+    padding: 32px 16px;
+  }
+
+  .activite-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .activite-icon {
+    margin: 0 auto;
+  }
+
+  .methodologie-card {
+    padding: 16px;
+  }
+
+  .methodologie-etape {
+    max-width: 150px;
+  }
+
+  .secteur-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .cta-mini-card {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .que-faisons-nous-content {
+    padding: 24px 12px;
+  }
+
+  .cta-card {
+    padding: 24px 16px;
+  }
+
+  .cta-mini-card {
+    width: 100px;
+  }
+}

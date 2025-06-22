@@ -1,0 +1,233 @@
+/* Variables inspirées de votre logo IFPE */
+:root {
+  --primary-color: #0056b3; /* Bleu foncé professionnel */
+  --secondary-color: #0056b3; /* Orange dynamique */
+  --accent-color: #3498db; /* Bleu clair */
+  --light-accent: #f7f9fc; /* Gris très clair */
+  --dark-gray: #2c3e50; /* Gris foncé */
+  --text-color: #333333;
+  --light-text: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.services-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f2f5 0%, #e6f7ff 100%);
+  padding: 0;
+}
+
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.fade-in-delay-3 {
+  animation-delay: 0.6s;
+}
+
+.fade-in-delay-4 {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  transition: var(--transition);
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 86, 179, 0.15);
+}
+
+.service-card .ant-card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-container {
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.service-card:hover .icon-container {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-item {
+  transition: var(--transition);
+  padding: 8px 0;
+  border-radius: 6px;
+  margin: 4px 0;
+}
+
+.feature-item:hover {
+  background: rgba(24, 144, 255, 0.05);
+  transform: translateX(8px);
+  padding-left: 12px;
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #0056b3, #3498db);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  color: white;
+  margin: 48px 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.advantage-card:hover {
+  background: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-content {
+    padding: 32px 16px;
+  }
+
+  .services-header {
+    margin-bottom: 32px;
+  }
+
+  .cta-section {
+    padding: 32px 24px;
+    margin: 32px 0;
+  }
+
+  .advantage-card {
+    padding: 24px 16px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-content {
+    padding: 24px 12px;
+  }
+
+  .cta-section {
+    padding: 24px 16px;
+  }
+}

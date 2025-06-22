@@ -1,0 +1,120 @@
+.scroll-to-top-advanced {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top-advanced.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.scroll-to-top-advanced.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.scroll-progress-container {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.scroll-progress-container:hover {
+  transform: scale(1.1);
+}
+
+.scroll-progress-container:active {
+  transform: scale(0.95);
+}
+
+.scroll-progress {
+  filter: drop-shadow(0 4px 12px rgba(0, 86, 179, 0.2));
+}
+
+.scroll-button-advanced {
+  transition: all 0.3s ease;
+}
+
+.scroll-button-advanced:hover {
+  color: #3498db !important;
+  background-color: rgba(52, 152, 219, 0.1) !important;
+}
+
+/* Animation de flottement */
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Animation d'apparition */
+.scroll-to-top-advanced.visible .scroll-progress-container {
+  animation: slideInUp 0.5s ease-out, floatUpDown 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de pulsation */
+.scroll-to-top-advanced.pulse .scroll-progress-container {
+  animation: pulseGlow 1.5s ease-in-out infinite, floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 4px 12px rgba(0, 86, 179, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 4px 20px rgba(0, 86, 179, 0.5));
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scroll-to-top-advanced {
+    bottom: 90px;
+    right: 20px;
+  }
+
+  .scroll-progress-container {
+    transform: scale(0.9);
+  }
+
+  .scroll-progress-container:hover {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top-advanced {
+    bottom: 85px;
+    right: 16px;
+  }
+
+  .scroll-progress-container {
+    transform: scale(0.8);
+  }
+
+  .scroll-progress-container:hover {
+    transform: scale(0.9);
+  }
+}

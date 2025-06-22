@@ -1,0 +1,36 @@
+.top-header {
+  background-color: #3111ff; /* rouge */
+  color: white;
+  padding: 10px 0;
+  font-size: 14px;
+  
+}
+
+.top-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  flex-wrap: wrap;
+  
+}
+
+
+.logo-left .top-logo {
+  height: 20px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

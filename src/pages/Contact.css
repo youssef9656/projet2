@@ -1,0 +1,187 @@
+:root {
+  --primary-color: #0056b3;
+  --secondary-color: #0056b3;
+  --accent-color: #3498db;
+  --light-accent: #f7f9fc;
+  --dark-gray: #2c3e50;
+  --text-color: #333333;
+  --light-text: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.contact-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--light-accent) 0%, #f0f0f0 100%);
+  padding: 0;
+}
+
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 {
+  animation-delay: 0.2s;
+}
+.fade-in-delay-2 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact-info-card {
+  height: 100%;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.contact-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-color);
+}
+
+.contact-form-card {
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.contact-form-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.contact-form-card .ant-card-head-title {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.contact-form-card .ant-form-item-label > label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.horaires-card,
+.why-contact-card {
+  transition: var(--transition);
+  border: 1px solid rgba(0, 86, 179, 0.1);
+}
+
+.horaires-card:hover,
+.why-contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.horaires-card .ant-card-head-title,
+.why-contact-card .ant-card-head-title {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.horaire-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.horaire-item:last-child {
+  border-bottom: none;
+}
+
+.why-contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.why-contact-icon {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 32px 16px;
+  }
+
+  .contact-header {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 24px 12px;
+  }
+}
