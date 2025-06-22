@@ -102,7 +102,7 @@ export default function Navbar() {
       <div className="header-content">
         <div className="logo-container">
   <img 
-    src="/logo1.png" 
+    src="logo1.png" 
     alt="Logo" 
     style={{ height: "60px" }}
   />
