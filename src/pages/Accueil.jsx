@@ -117,21 +117,7 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* Contact Footer Section */}
-      <section className="contact-footer-section">
-        <div className="container-fluid">
-          <div className="contact-info-grid">
-            <div className="contact-item">
-              <h3 className="contact-label">Email</h3>
-              <p className="contact-value">contact@ifpe.ma</p>
-            </div>
-            <div className="contact-item">
-              <h3 className="contact-label">Tél.</h3>
-              <p className="contact-value">+212 5 XX XX XX</p>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
     </div>
   )
 }

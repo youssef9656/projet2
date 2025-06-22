@@ -1,6 +1,8 @@
 
+/* VARIABLES GLOBALES    */
+/* ===================== */
 :root {
-  --primary-color: #1890ff;
+  --primary-color: #3718ff;
   --text-color: #333;
   --subtext-color: #666;
   --transition-speed: 0.3s;

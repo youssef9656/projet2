@@ -1,7 +1,12 @@
 // src/components/Navbar.jsx
 import { Link } from "react-router-dom";
-import { Layout, Menu, theme, Space, Avatar } from "antd";
-import { HomeOutlined, UserOutlined, SolutionOutlined, ProjectOutlined, ContactsOutlined, TeamOutlined } from "@ant-design/icons";
+import { Layout, Menu, theme, Row, Col, Divider } from "antd";
+import { 
+  PhoneOutlined, 
+  MailOutlined, 
+  EnvironmentOutlined,
+  ClockCircleOutlined 
+} from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 
@@ -30,49 +35,45 @@ export default function Navbar() {
       key: "accueil",
     },
     {
-      label: <Link to="/services">Nos Services</Link>,
-      key: "apropos",
-    },
-       {
-      label: <Link to="/atouts">Nos Atouts</Link>,
-      key: "realisations",
+      label: <Link to="/services">NOS SERVICES</Link>,
+      key: "services",
     },
     {
-      label: <span>À la découverte de notre cabinet</span>,
-      key: "domaines",
+      label: <Link to="/atouts">NOS ATOUTS</Link>,
+      key: "atouts",
+    },
+    {
+      label: <span>NOTRE CABINET</span>,
+      key: "cabinet",
       children: [
         {
           label: <Link to="/QuiSommesNous">Qui sommes-nous ?</Link>,
-          key: "education",
+          key: "quisommesnous",
         },
         {
           label: <Link to="/QueFaisonsNous">Que faisons-nous ?</Link>,
-          key: "appui",
+          key: "quefaisonsnous",
         },
         {
           label: <Link to="/PourquoiNousFaireConfiance">Pourquoi nous faire confiance ?</Link>,
-          key: "emploi",
+          key: "confiance",
         },
       ],
     },
-       {
-      label: <span>Implication et Réalisations</span>,
-      key: "Implication",
+    {
+      label: <span>NOS RÉALISATIONS</span>,
+      key: "realisations",
       children: [
         {
-         label: <Link to="/Realisations">Réalisations & Projets Clés</Link>,
-          key: "Realisations",
+          label: <Link to="/Realisations">Projets Clés</Link>,
+          key: "projets",
         },
-  
         {
-      label: <Link to="/candidature">candidature</Link>,
+          label: <Link to="/candidature">Candidature</Link>,
           key: "candidature",
         },
       ],
     },
- 
-   
-
     {
       label: <Link to="/contact">CONTACT</Link>,
       key: "contact",
@@ -85,76 +86,82 @@ export default function Navbar() {
   };
 
   return (
-    <Header
-      className={`app-header scrolled ${mobileMenuVisible ? "mobile-menu-open" : ""}`}
-      style={{
-        position: "fixed",
-        zIndex: 1000,
-        width: "100%",
-        padding: "0",
-        transition: "all 0.3s ease",
-        boxShadow: "rgb(255, 255, 255)",
-        background: "rgba(255, 255, 255, 0.9)",
-        height: "80px",
-        lineHeight: "80px",
-      }}
-    >
-      <div className="header-content">
-        <div className="logo-container">
-  <img 
-    src="logo1.png" 
-    alt="Logo" 
-    style={{ height: "60px" }}
-  />
-        </div>
-
-        <Menu
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode="horizontal"
-          items={items}
-          className="desktop-menu"
-          style={{
-            borderBottom: "none",
-            lineHeight: "80px",
-            fontSize: "14px",
-            fontWeight: "600",
-            color: "#333",
-            width: "100%",
-            justifyContent: "center",
-            
-          }}
-        />
-
-        <div 
-          className="mobile-menu-button" 
-          onClick={() => setMobileMenuVisible(!mobileMenuVisible)}
-        >
-          <div className={`menu-icon-bar ${mobileMenuVisible ? "open" : ""}`} />
-          <div className={`menu-icon-bar ${mobileMenuVisible ? "open" : ""}`} />
-          <div className={`menu-icon-bar ${mobileMenuVisible ? "open" : ""}`} />
+    <>
+      {/* Top Info Bar */}
+      <div className="top-info-bar">
+        <div className="container">
+          <Row gutter={20} align="middle">
+            <Col xs={24} sm={8}>
+              <div className="info-item">
+                <EnvironmentOutlined className="info-icon" />
+                <span>123 Rue Example, Paris 75000</span>
+              </div>
+            </Col>
+            <Col xs={24} sm={8}>
+              <div className="info-item">
+                <PhoneOutlined className="info-icon" />
+                <span>+33 1 23 45 67 89</span>
+              </div>
+            </Col>
+            <Col xs={24} sm={8}>
+              <div className="info-item">
+                <MailOutlined className="info-icon" />
+                <span>contact@example.com</span>
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
 
-      {/* Menu mobile */}
-      {mobileMenuVisible && (
-        <Menu
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode="inline"
-          items={items}
-          className="mobile-menu"
-          style={{
-            position: "absolute",
-            top: "80px",
-            left: 0,
-            right: 0,
-            background: "white",
-            borderTop: "1px solid #f0f0f0",
-            zIndex: 1000,
-          }}
-        />
-      )}
-    </Header>
+      {/* Main Navbar */}
+      <Header
+        className={`navbar ${scrolled ? "scrolled" : ""} ${mobileMenuVisible ? "mobile-menu-open" : ""}`}
+        style={{
+          background: "rgba(255, 255, 255, 0.97)",
+          backdropFilter: "blur(10px)",
+        }}
+      >
+        <div className="navbar-container">
+          <div className="logo">
+            <Link to="/">
+              <img 
+                src="/logo1.png" 
+                alt="Logo" 
+                className="logo-image"
+              />
+            </Link>
+          </div>
+
+          <div className="menu-container">
+            <Menu
+              onClick={onClick}
+              selectedKeys={[current]}
+              mode="horizontal"
+              items={items}
+              className="desktop-menu"
+            />
+
+            <div 
+              className={`mobile-menu-button ${mobileMenuVisible ? "open" : ""}`}
+              onClick={() => setMobileMenuVisible(!mobileMenuVisible)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          {/* Mobile menu */}
+          <div className={`mobile-menu ${mobileMenuVisible ? "open" : ""}`}>
+            <Menu
+              onClick={onClick}
+              selectedKeys={[current]}
+              mode="inline"
+              items={items}
+            />
+          </div>
+        </div>
+      </Header>
+    </>
   );
 }

@@ -14,7 +14,6 @@ import Contact from "./pages/Contact";
 import FloatingChatBot from "./components/FloatingChatBot"
 import Candidature from "./pages/Candidature" // Ajouter l'import
 
-
 // Ajouter les imports
 // import ScrollToTop from "./components/ScrollToTop"
 // ou pour la version avancée :
@@ -28,7 +27,7 @@ import Dashboard from './pages/Dashboard'
 
 export default function App() {
   return (
-    <BrowserRouter basename="/projet2">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Accueil />} />

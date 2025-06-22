@@ -237,11 +237,7 @@
   min-height: 200px;
 }
 
-/* Contact Footer Section */
-.contact-footer-section {
-  background: #174377;
-  padding: 60px 0;
-}
+
 
 .contact-info-grid {
   display: grid;
