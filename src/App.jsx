@@ -27,7 +27,7 @@ import Dashboard from './pages/Dashboard'
 
 export default function App() {
   return (
-    <BrowserRouter  basename="/projet2">
+    <BrowserRouter  basename="/projet2" >
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Accueil />} />
