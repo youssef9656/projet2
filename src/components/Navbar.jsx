@@ -136,7 +136,7 @@ export default function Navbar() {
         <div className="navbar-container">
           <div className="logo">
             <Link to="/">
-              <img src="/logo1.png" alt="Logo" className="logo-image" />
+              <img src="logo1.png" alt="Logo" className="logo-image" />
             </Link>
           </div>
 

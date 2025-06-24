@@ -51,7 +51,7 @@ export default function Accueil() {
       <section className="hero-section-ifpe">
         <div className="hero-background">
           <img
-            src="/imge.png"
+            src="imge.png"
             alt="Professional training presentation"
             className="hero-image"
           />
