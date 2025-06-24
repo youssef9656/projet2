@@ -182,18 +182,7 @@ export default function PourquoiNousFaireConfiance() {
       <div className="pourquoi-confiance-content">
         {/* Header Section */}
         <div className={`pourquoi-confiance-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="purple"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟪 Pourquoi nous faire confiance ?
-          </Tag>
+     
 
           <Title
             level={1}

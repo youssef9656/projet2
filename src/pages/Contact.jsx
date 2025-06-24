@@ -1,7 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card, Button, Typography, Row, Col, Tag, Form, Input, message, Space } from "antd"
+import {
+  Card,
+  Button,
+  Typography,
+  Row,
+  Col,
+  Tag,
+  Form,
+  Input,
+  message,
+  Space,
+  Alert,
+} from "antd"
 import {
   MailOutlined,
   PhoneOutlined,
@@ -21,6 +33,7 @@ export default function Contact() {
   const [isVisible, setIsVisible] = useState(false)
   const [form] = Form.useForm()
   const [loading, setLoading] = useState(false)
+  const [alertMessage, setAlertMessage] = useState(null)
 
   useEffect(() => {
     setIsVisible(true)
@@ -28,16 +41,42 @@ export default function Contact() {
 
   const handleSubmit = async (values) => {
     setLoading(true)
+    setAlertMessage("Envoi du message en cours...")
+
     try {
-      // Simulation d'envoi
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      console.log("Formulaire soumis:", values)
-      message.success("Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.")
-      form.resetFields()
+      const payload = {
+        fullName: values.nom,
+        email: values.email,
+        phone: values.telephone || "",
+        subject: values.sujet,
+        message: values.message,
+      }
+
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        message.success("Votre message a été envoyé avec succès !")
+        setAlertMessage("✔ Message envoyé avec succès !")
+        form.resetFields()
+      } else {
+        message.error(data.error || "Erreur lors de l'envoi.")
+        setAlertMessage(null)
+      }
     } catch (error) {
-      message.error("Erreur lors de l'envoi du message. Veuillez réessayer.")
+      console.error(error)
+      message.error("Erreur lors de l'envoi du message.")
+      setAlertMessage(null)
     } finally {
       setLoading(false)
+      setTimeout(() => setAlertMessage(null), 5000)
     }
   }
 
@@ -45,25 +84,26 @@ export default function Contact() {
     {
       icon: <EnvironmentOutlined className="contact-icon" />,
       title: "Adresse",
-      content: "[Votre adresse complète]",
+      content:
+        "Lot El Houda, Résidence Nadia, Immeuble B, Appartement N°81, Boulevard Mohamed Belafrej, Sidi Maarouf, Casablanca – Maroc",
       description: "Siège social et bureaux",
     },
     {
       icon: <PhoneOutlined className="contact-icon" />,
       title: "Téléphone",
-      content: "[Votre numéro de téléphone]",
+      content: "+212 (0) 661 22 74 96 / +212 (0) 627 15 01 30",
       description: "Lun-Ven: 8h00-18h00",
     },
     {
       icon: <MailOutlined className="contact-icon" />,
       title: "Email",
-      content: "[votre@email.com]",
+      content: "ifep.consulting@multiconsul.com",
       description: "Réponse sous 24h",
     },
     {
       icon: <GlobalOutlined className="contact-icon" />,
       title: "Site web",
-      content: "[nomdedomaine.com]",
+      content: "www.ifep-consulting.com",
       description: "Portail d'informations",
     },
   ]
@@ -77,21 +117,7 @@ export default function Contact() {
   return (
     <div className="contact-container">
       <div className="contact-content">
-        {/* Header Section */}
         <div className={`contact-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="brown"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟫 Nous contacter
-          </Tag>
-
           <Title
             level={1}
             className="gradient-text floating-animation"
@@ -103,7 +129,6 @@ export default function Contact() {
           >
             Contactez-nous
           </Title>
-
           <Paragraph
             style={{
               fontSize: "18px",
@@ -118,7 +143,7 @@ export default function Contact() {
           </Paragraph>
         </div>
 
-        {/* Contact Info Cards */}
+        {/* Informations de contact */}
         <Row
           gutter={[24, 24]}
           className={`contact-info-section ${isVisible ? "fade-in fade-in-delay-1" : ""}`}
@@ -146,9 +171,8 @@ export default function Contact() {
           ))}
         </Row>
 
-        {/* Main Contact Section */}
+        {/* Formulaire et horaires */}
         <Row gutter={[32, 32]} className={`${isVisible ? "fade-in fade-in-delay-2" : ""}`}>
-          {/* Formulaire de contact */}
           <Col xs={24} lg={14}>
             <Card className="contact-form-card" title="Envoyez-nous un message">
               <Form form={form} layout="vertical" onFinish={handleSubmit} size="large">
@@ -214,14 +238,22 @@ export default function Contact() {
                     {loading ? "Envoi en cours..." : "Envoyer le message"}
                   </Button>
                 </Form.Item>
+
+                {alertMessage && (
+                  <Alert
+                    message={alertMessage}
+                    type={alertMessage.includes("Erreur") ? "error" : "info"}
+                    showIcon
+                    style={{ marginTop: 16 }}
+                  />
+                )}
               </Form>
             </Card>
           </Col>
 
-          {/* Informations complémentaires */}
+          {/* Horaires & arguments */}
           <Col xs={24} lg={10}>
             <Space direction="vertical" size="large" style={{ width: "100%" }}>
-              {/* Horaires d'ouverture */}
               <Card className="horaires-card" title="Horaires d'ouverture" extra={<ClockCircleOutlined />}>
                 {horaires.map((horaire, index) => (
                   <div key={index} className="horaire-item">
@@ -231,40 +263,27 @@ export default function Contact() {
                 ))}
               </Card>
 
-              {/* Pourquoi nous contacter */}
               <Card className="why-contact-card" title="Pourquoi nous contacter ?">
                 <div className="why-contact-items">
                   <div className="why-contact-item">
-                    <div className="why-contact-icon">✅</div>
-                    <div>
-                      <Text strong>Consultation gratuite</Text>
-                      <br />
-                      <Text type="secondary">Premier échange sans engagement</Text>
-                    </div>
+                    <Text strong>Consultation gratuite</Text>
+                    <br />
+                    <Text type="secondary">Premier échange sans engagement</Text>
                   </div>
                   <div className="why-contact-item">
-                    <div className="why-contact-icon">⚡</div>
-                    <div>
-                      <Text strong>Réponse rapide</Text>
-                      <br />
-                      <Text type="secondary">Retour sous 24h maximum</Text>
-                    </div>
+                    <Text strong>Réponse rapide</Text>
+                    <br />
+                    <Text type="secondary">Retour sous 24h maximum</Text>
                   </div>
                   <div className="why-contact-item">
-                    <div className="why-contact-icon">🎯</div>
-                    <div>
-                      <Text strong>Solutions sur mesure</Text>
-                      <br />
-                      <Text type="secondary">Adaptées à vos besoins spécifiques</Text>
-                    </div>
+                    <Text strong>Solutions sur mesure</Text>
+                    <br />
+                    <Text type="secondary">Adaptées à vos besoins spécifiques</Text>
                   </div>
                   <div className="why-contact-item">
-                    <div className="why-contact-icon">🤝</div>
-                    <div>
-                      <Text strong>Accompagnement complet</Text>
-                      <br />
-                      <Text type="secondary">De l'analyse à la mise en œuvre</Text>
-                    </div>
+                    <Text strong>Accompagnement complet</Text>
+                    <br />
+                    <Text type="secondary">De l'analyse à la mise en œuvre</Text>
                   </div>
                 </div>
               </Card>

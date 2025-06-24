@@ -1,0 +1,12 @@
+.layout-containerY {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.main-contentY {
+  flex: 1;
+  padding: 10px;
+  padding-top: 24;
+}

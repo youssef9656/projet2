@@ -3,20 +3,20 @@
 import { Button, Typography } from "antd"
 import { CheckOutlined } from "@ant-design/icons"
 import "./Accueil.css"
-import Loader from "../components/Loader"
+
 import { useEffect, useState } from "react"
 
-const { Title, Paragraph } = Typography
+
 
 export default function Accueil() {
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [])
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false)
+  //   }, 1000)
+  //   return () => clearTimeout(timer)
+  // }, [])
 
   // if (loading) return <Loader />
 
@@ -51,7 +51,7 @@ export default function Accueil() {
       <section className="hero-section-ifpe">
         <div className="hero-background">
           <img
-            src="imge.png"
+            src="/imge.png"
             alt="Professional training presentation"
             className="hero-image"
           />
@@ -67,8 +67,8 @@ export default function Accueil() {
             </h1>
 
             <div className="hero-buttons-container">
-              <Button className="btn-primary-hero">Nous rejoindre</Button>
-              <Button className="btn-secondary-hero">Découvrir nos services</Button>
+               <Button className="btn-primary-hero"><a href="/candidature">Nous rejoindre</a></Button>
+              <Button className="btn-secondary-hero"><a href="/services">Découvrir nos services</a></Button>
             </div>
           </div>
         </div>

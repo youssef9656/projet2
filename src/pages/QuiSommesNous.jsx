@@ -9,6 +9,9 @@ import {
   StarOutlined,
   TrophyOutlined,
   GlobalOutlined,
+  PhoneOutlined,
+  MailOutlined,
+  EnvironmentOutlined,
 } from "@ant-design/icons"
 import "./QuiSommesNous.css"
 
@@ -33,19 +36,6 @@ export default function QuiSommesNous() {
       <div className="qui-sommes-nous-content">
         {/* Header Section */}
         <div className={`qui-sommes-nous-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="purple"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟪 Qui sommes-nous ?
-          </Tag>
-
           <Title
             level={1}
             className="gradient-text floating-animation"
@@ -84,10 +74,10 @@ export default function QuiSommesNous() {
                   </div>
                   <div className="team-info">
                     <Title level={3} style={{ marginBottom: "4px", color: "#262626" }}>
-                      [Nom du consultant principal]
+                      MANYANI Mohamed
                     </Title>
                     <Text strong style={{ color: "var(--primary-color)", fontSize: "16px" }}>
-                      Fondateur & Directeur
+                      Fondateur & Consultant – Expert méthodologue
                     </Text>
                     <div style={{ marginTop: "8px" }}>
                       <Tag color="gold" style={{ marginRight: "8px" }}>
@@ -115,6 +105,23 @@ export default function QuiSommesNous() {
                       </Space>
                     </div>
                   ))}
+                  <div style={{ marginTop: "24px" }}>
+                    <Space direction="vertical" size="small">
+                      <Text>
+                        <PhoneOutlined /> +212 (0) 661 22 74 96
+                      </Text>
+                      <Text>
+                        <PhoneOutlined /> +212 (0) 627 15 01 30
+                      </Text>
+                      <Text>
+                        <MailOutlined /> ifep.consulting@multiconsul.com
+                      </Text>
+                      <Text>
+                        <EnvironmentOutlined /> Lot El Houda, Résidence Nadia, Immeuble B, Appartement N°81, Boulevard
+                        Mohamed Belafrej, Sidi Maarouf, Casablanca – Maroc
+                      </Text>
+                    </Space>
+                  </div>
                 </div>
               </Card>
             </Col>
@@ -128,7 +135,7 @@ export default function QuiSommesNous() {
                   </div>
                   <div className="team-info">
                     <Title level={3} style={{ marginBottom: "4px", color: "#262626" }}>
-                      [Votre nom] & [Bakari]
+                      Youssef & Bakari
                     </Title>
                     <Text strong style={{ color: "var(--accent-color)", fontSize: "16px" }}>
                       Équipe dirigeante

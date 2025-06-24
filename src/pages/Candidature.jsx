@@ -683,46 +683,9 @@ export default function Candidature() {
 
         {/* Section d'aide avec codes d'erreur */}
         <Card style={{ marginTop: "24px", background: "#f0f8ff", border: "1px solid #e6f7ff" }}>
-          <Title level={4} style={{ color: "#0056b3", marginBottom: "16px" }}>
-            🔧 Guide de résolution des erreurs
-          </Title>
+         
           <Row gutter={[16, 16]}>
-            <Col xs={24} md={12}>
-              <div style={{ marginBottom: "12px" }}>
-                <Text strong style={{ color: "#ff4d4f" }}>
-                  ❌ Erreurs de fichier
-                </Text>
-                <ul style={{ fontSize: "12px", color: "#666", marginTop: "4px" }}>
-                  <li>Fichier trop volumineux : Compressez votre CV (max 5MB)</li>
-                  <li>Format non supporté : Utilisez PDF, DOC ou DOCX uniquement</li>
-                  <li>CV manquant : Sélectionnez un fichier avant d'envoyer</li>
-                </ul>
-              </div>
-            </Col>
-            <Col xs={24} md={12}>
-              <div style={{ marginBottom: "12px" }}>
-                <Text strong style={{ color: "#faad14" }}>
-                  ⚠️ Erreurs de validation
-                </Text>
-                <ul style={{ fontSize: "12px", color: "#666", marginTop: "4px" }}>
-                  <li>Champs manquants : Remplissez tous les champs obligatoires (*)</li>
-                  <li>Email invalide : Vérifiez le format (nom@domaine.com)</li>
-                  <li>Email existant : Contactez le support pour modifier</li>
-                </ul>
-              </div>
-            </Col>
-            <Col xs={24} md={12}>
-              <div style={{ marginBottom: "12px" }}>
-                <Text strong style={{ color: "#1890ff" }}>
-                  🌐 Erreurs de connexion
-                </Text>
-                <ul style={{ fontSize: "12px", color: "#666", marginTop: "4px" }}>
-                  <li>Serveur inaccessible : Vérifiez le port 5000</li>
-                  <li>Connexion lente : Patientez ou réessayez</li>
-                  <li>Pare-feu : Autorisez l'accès au serveur</li>
-                </ul>
-              </div>
-            </Col>
+        
             <Col xs={24} md={12}>
               <div style={{ marginBottom: "12px" }}>
                 <Text strong style={{ color: "#52c41a" }}>

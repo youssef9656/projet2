@@ -140,18 +140,7 @@ export default function QueFaisonsNous() {
       <div className="que-faisons-nous-content">
         {/* Header Section */}
         <div className={`que-faisons-nous-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="purple"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟪 Que faisons-nous ?
-          </Tag>
+       
 
           <Title
             level={1}

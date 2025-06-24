@@ -140,18 +140,7 @@ export default function Atouts() {
       <div className="atouts-content">
         {/* Header Section */}
         <div className={`atouts-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="gold"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟨 Nos Atouts
-          </Tag>
+        
 
           <Title
             level={1}
@@ -281,7 +270,7 @@ export default function Atouts() {
             Contactez-nous pour découvrir comment nos atouts peuvent servir vos objectifs.
           </Paragraph>
           <Space size="large" wrap>
-            <Button
+        <Button
               type="primary"
               size="large"
               style={{
@@ -294,20 +283,21 @@ export default function Atouts() {
               }}
               icon={<ContactsOutlined />}
             >
-              Nous contacter
+                  <a href="/contact">Nous contacter</a>
+              
             </Button>
             <Button
               size="large"
               style={{
                 borderColor: "white",
-                color: "white",
+                color: "#0056b3",
                 fontWeight: "bold",
                 height: "48px",
                 padding: "0 32px",
               }}
               icon={<ArrowRightOutlined />}
             >
-              Voir nos réalisations
+              <a href="/Realisations"  >Voir nos réalisations</a>
             </Button>
           </Space>
         </div>

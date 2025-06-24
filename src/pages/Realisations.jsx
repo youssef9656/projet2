@@ -107,18 +107,7 @@ export default function Realisations() {
       <div className="realisations-content">
         {/* Header Section */}
         <div className={`realisations-header ${isVisible ? "fade-in" : ""}`}>
-          <Tag
-            color="volcano"
-            style={{
-              fontSize: "14px",
-              padding: "8px 16px",
-              marginBottom: "24px",
-              borderRadius: "20px",
-            }}
-            className="bounce-in"
-          >
-            🟧 Réalisations & Projets Clés
-          </Tag>
+      
 
           <Title
             level={1}

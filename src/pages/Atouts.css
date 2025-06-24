@@ -1,10 +1,9 @@
-/* Variables inspirées de votre logo IFPE */
 :root {
-  --primary-color: #0056b3; /* Bleu foncé professionnel */
-  --secondary-color: #0056b3; /* Orange dynamique */
-  --accent-color: #3498db; /* Bleu clair */
-  --light-accent: #f7f9fc; /* Gris très clair */
-  --dark-gray: #2c3e50; /* Gris foncé */
+  --primary-color: #0056b3;
+  --secondary-color: #fa8c16;
+  --accent-color: #3498db;
+  --light-accent: #f7f9fc;
+  --dark-gray: #2c3e50;
   --text-color: #333333;
   --light-text: #7f8c8d;
   --white: #ffffff;
@@ -12,44 +11,49 @@
   --transition: all 0.3s ease;
 }
 
+/* body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--light-accent);
+  color: var(--text-color);
+} */
+
+/* Container principal */
 .atouts-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #f0f2f5 0%, #fff7e6 100%);
   padding: 0;
 }
 
+/* Contenu central */
 .atouts-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 64px 24px;
 }
 
+/* En-tête */
 .atouts-header {
   text-align: center;
   margin-bottom: 64px;
 }
 
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.fade-in-delay-1 {
-  animation-delay: 0.2s;
-}
-
-.fade-in-delay-2 {
-  animation-delay: 0.4s;
-}
-
-.fade-in-delay-3 {
-  animation-delay: 0.6s;
-}
-
-.fade-in-delay-4 {
-  animation-delay: 0.8s;
-}
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; }
+.fade-in-delay-4 { animation-delay: 0.8s; }
 
 @keyframes fadeInUp {
   to {
@@ -58,10 +62,42 @@
   }
 }
 
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Cartes atouts */
 .atout-card {
   transition: var(--transition);
   height: 100%;
   border: 2px solid transparent;
+  background: white;
+  border-radius: 12px;
 }
 
 .atout-card:hover {
@@ -115,6 +151,7 @@
   padding: 6px 0;
   border-radius: 6px;
   margin: 2px 0;
+  cursor: default;
 }
 
 .detail-item:hover {
@@ -123,51 +160,7 @@
   padding-left: 12px;
 }
 
-.pulse-animation {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.floating-animation {
-  animation: floating 3s ease-in-out infinite;
-}
-
-@keyframes floating {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.cta-section {
-  background: linear-gradient(135deg, #0056b3, #3498db);
-  border-radius: 16px;
-  padding: 48px;
-  text-align: center;
-  color: white;
-  margin: 48px 0;
-  box-shadow: 0 8px 32px rgba(0, 86, 179, 0.3);
-}
-
+/* Statistiques */
 .stat-card {
   text-align: center;
   padding: 24px;
@@ -179,11 +172,12 @@
 }
 
 .stat-card:hover {
-  background: rgba(255, 255, 255, 1);
+  background: white;
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Certifications */
 .certification-card {
   text-align: center;
   padding: 32px 24px;
@@ -201,29 +195,23 @@
   border-color: rgba(24, 144, 255, 0.3);
 }
 
-.bounce-in {
-  animation: bounceIn 0.8s ease-out forwards;
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, #0056b3, #3498db);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  color: white;
+  margin: 48px 0;
+  box-shadow: 0 8px 32px rgba(0, 86, 179, 0.3);
 }
 
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+.cta-section a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .atouts-content {
     padding: 32px 16px;

@@ -1,228 +1,99 @@
+/* Loader.css */
 
-/* VARIABLES GLOBALES    */
-/* ===================== */
-:root {
-  --primary-color: #3718ff;
-  --text-color: #333;
-  --subtext-color: #666;
-  --transition-speed: 0.3s;
-}
-
-/* ===================== */
-/* NAVBAR FIXE EN HAUT   */
-/* ===================== */
-.app-header {
+.loader-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: all var(--transition-speed) ease;
+  height: 100vh;
+  background-color: #f0f4f8;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-.app-header.scrolled {
-  background: white !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.loader-content {
+  text-align: center;
 }
 
-/* ===================== */
-/* CONTENU NAVBAR        */
-/* ===================== */
-.header-content {
+.logo-animation {
+  margin-bottom: 20px;
+}
+
+.letter-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007BFF;
+  animation: bounce 1.2s infinite;
+}
+
+.letter-i { animation-delay: 0s; }
+.letter-f { animation-delay: 0.1s; }
+.letter-p { animation-delay: 0.2s; }
+.letter-e { animation-delay: 0.3s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.cube-animation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cube {
+  width: 15px;
+  height: 15px;
+  background-color: #007BFF;
+  animation: cubePulse 1.2s infinite ease-in-out;
+}
+
+.cube-1 { animation-delay: 0s; }
+.cube-2 { animation-delay: 0.2s; }
+.cube-3 { animation-delay: 0.4s; }
+
+@keyframes cubePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 8px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+  overflow: hidden;
   margin: 0 auto;
-  padding: 0 40px;
 }
 
-/* ===================== */
-/* LOGO                  */
-/* ===================== */
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin-right: 40px;
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background-color: #007BFF;
+  animation: progressFill 2.5s ease-in-out infinite;
 }
 
-.logo-link {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
+@keyframes progressFill {
+  0% { width: 0%; }
+  50% { width: 100%; }
+  100% { width: 0%; }
 }
 
-.logo-text {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--text-color);
-  line-height: 1;
-  transition: color var(--transition-speed) ease;
-}
-
-.logo-subtext {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--subtext-color);
-  letter-spacing: 1px;
-  line-height: 1.2;
-}
-
-.app-header:not(.scrolled) .logo-text {
-  color: white;
-}
-
-/* ===================== */
-/* MENU DESKTOP          */
-/* ===================== */
-.desktop-menu {
-  display: flex;
-}
-
-.desktop-menu .ant-menu-item {
-  padding: 0 15px;
-  margin: 0 5px;
-  border-bottom: 3px solid transparent;
-  transition: all var(--transition-speed) ease;
-}
-
-.desktop-menu .ant-menu-item:hover,
-.desktop-menu .ant-menu-item-selected {
-  border-bottom: 3px solid var(--primary-color);
-  color: var(--primary-color) !important;
-}
-
-.desktop-menu .ant-menu-submenu-title {
-  padding: 0 15px !important;
-  margin: 0 5px !important;
-}
-
-.desktop-menu .ant-menu-submenu:hover .ant-menu-submenu-title,
-.desktop-menu .ant-menu-submenu-selected .ant-menu-submenu-title {
-  color: var(--primary-color) !important;
-}
-
-/* ===================== */
-/* ANIMATION DES LIENS   */
-/* ===================== */
-.ant-menu-item {
-  transition: all var(--transition-speed) ease !important;
-}
-
-.ant-menu-item:hover {
-  transform: translateY(-2px);
-}
-
-/* ===================== */
-/* BOUTON MENU MOBILE    */
-/* ===================== */
-.mobile-menu-button {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.menu-icon-bar {
-  height: 2px;
-  width: 100%;
-  background-color: var(--text-color);
-  transition: all var(--transition-speed) ease;
-  transform-origin: left center;
-}
-
-.app-header:not(.scrolled) .menu-icon-bar {
-  background-color: white;
-}
-
-/* Animation du menu burger */
-.menu-icon-bar.open:nth-child(1) {
-  transform: rotate(45deg) translate(1px, -1px);
-}
-
-.menu-icon-bar.open:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-icon-bar.open:nth-child(3) {
-  transform: rotate(-45deg) translate(1px, 1px);
-}
-
-/* ===================== */
-/* MENU MOBILE           */
-/* ===================== */
-.mobile-menu {
-  display: none;
-}
-
-/* ===================== */
-/* MENU DÉROULANT        */
-/* ===================== */
-.ant-menu-submenu-popup {
-  padding-top: 10px;
-}
-
-.ant-menu-submenu-popup .ant-menu {
-  padding: 10px 0;
-}
-
-.ant-menu-submenu-popup .ant-menu-item {
-  margin: 0;
-  padding: 8px 20px !important;
-  min-width: 250px;
-}
-
-/* ===================== */
-/* RESPONSIVE DESIGN     */
-/* ===================== */
-@media (max-width: 1200px) {
-  .header-content {
-    padding: 0 20px;
-  }
-
-  .desktop-menu .ant-menu-item {
-    padding: 0 10px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 992px) {
-  .desktop-menu {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-
-  .header-content {
-    padding: 0 15px;
-  }
-}
-
-@media (max-width: 576px) {
-  .app-header {
-    height: 60px;
-    line-height: 60px;
-  }
-
-  .logo-text {
-    font-size: 22px;
-  }
-
-  .logo-subtext {
-    font-size: 12px;
-  }
-
-  .mobile-menu {
-    top: 60px !important;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

@@ -24,7 +24,6 @@ export default function FloatingChatBot() {
   const [hasNewMessage, setHasNewMessage] = useState(false)
 
   useEffect(() => {
-    // Animation d'apparition après 2 secondes
     const timer = setTimeout(() => {
       setHasNewMessage(true)
     }, 2000)
@@ -118,13 +117,16 @@ export default function FloatingChatBot() {
       return
     }
 
-    // Ajouter la question de l'utilisateur
+    // Ajouter seulement la question de l'utilisateur
     const userMessage = {
       id: messages.length + 1,
       type: "user",
       content: questionObj.question,
       timestamp: new Date(),
     }
+
+    setMessages(prev => [...prev, userMessage])
+    setUsedQuestions(prev => [...prev, questionObj.id])
 
     // Ajouter la réponse du bot après un délai
     setTimeout(() => {
@@ -135,12 +137,9 @@ export default function FloatingChatBot() {
         timestamp: new Date(),
       }
 
-      setMessages((prev) => [...prev, userMessage, botMessage])
-      setQuestionsUsed((prev) => prev + 1)
-      setUsedQuestions((prev) => [...prev, questionObj.id])
+      setMessages(prev => [...prev, botMessage])
+      setQuestionsUsed(prev => prev + 1)
     }, 500)
-
-    setMessages((prev) => [...prev, userMessage])
   }
 
   const resetChat = () => {
@@ -161,7 +160,6 @@ export default function FloatingChatBot() {
 
   return (
     <>
-      {/* Floating Chat Button */}
       <div className={`floating-chat-button ${hasNewMessage ? "has-notification" : ""}`} onClick={openChat}>
         <Avatar
           size={56}
@@ -177,7 +175,6 @@ export default function FloatingChatBot() {
         <div className="chat-tooltip">💬 Besoin d'aide ? Cliquez ici !</div>
       </div>
 
-      {/* Chat Modal */}
       <Modal
         title={null}
         open={isVisible}
@@ -190,7 +187,6 @@ export default function FloatingChatBot() {
         closable={false}
       >
         <div className="floating-chat-container">
-          {/* Chat Header */}
           <div className="floating-chat-header">
             <Space>
               <Avatar
@@ -234,7 +230,6 @@ export default function FloatingChatBot() {
 
           {!isMinimized && (
             <>
-              {/* Messages Area */}
               <div className="floating-messages-area">
                 {messages.map((message) => (
                   <div key={message.id} className={`floating-message ${message.type}-message`}>
@@ -246,8 +241,23 @@ export default function FloatingChatBot() {
                         }}
                         icon={message.type === "bot" ? <RobotOutlined /> : <UserOutlined />}
                       />
-                      <div className="floating-message-bubble">
-                        <div className="floating-message-text">{message.content}</div>
+                      <div 
+                        className="floating-message-bubble"
+                        style={{
+                          maxWidth: 'calc(100% - 50px)',
+                          wordWrap: 'break-word'
+                        }}
+                      >
+                        <div 
+                          className="floating-message-text"
+                          style={{
+                            whiteSpace: 'pre-line',
+                            lineHeight: '1.5',
+                            fontSize: 'clamp(12px, 2.5vw, 14px)'
+                          }}
+                        >
+                          {message.content}
+                        </div>
                         <div className="floating-message-time">
                           {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                         </div>
@@ -257,7 +267,6 @@ export default function FloatingChatBot() {
                 ))}
               </div>
 
-              {/* Questions Buttons */}
               {questionsUsed < 5 && availableQuestions.length > 0 && (
                 <div className="floating-questions-section">
                   <div className="floating-questions-header">
@@ -266,12 +275,26 @@ export default function FloatingChatBot() {
                       Questions disponibles :
                     </Text>
                   </div>
-                  <div className="floating-questions-list">
-                    {availableQuestions.slice(0, 4).map((questionObj) => (
+                  <div 
+                    className="floating-questions-list"
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                      gap: '8px'
+                    }}
+                  >
+                    {availableQuestions.slice(0, 5).map((questionObj) => (
                       <Button
                         key={questionObj.id}
                         size="small"
                         className="floating-question-button"
+                        style={{
+                          whiteSpace: 'normal',
+                          height: 'auto',
+                          minHeight: '40px',
+                          padding: '6px 8px',
+                          fontSize: 'clamp(10px, 2vw, 12px)'
+                        }}
                         onClick={() => handleQuestionClick(questionObj)}
                         icon={<SendOutlined style={{ fontSize: "10px" }} />}
                       >
@@ -282,7 +305,6 @@ export default function FloatingChatBot() {
                 </div>
               )}
 
-              {/* Limit Reached Message */}
               {questionsUsed >= 5 && (
                 <div className="floating-limit-reached">
                   <div style={{ textAlign: "center", padding: "16px" }}>

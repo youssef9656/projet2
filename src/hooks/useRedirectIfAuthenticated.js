@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 
 export default function useRedirectIfAuthenticated(redirectTo = "/dashboard") {
   const navigate = useNavigate()
+  const   BASE_URL = import.meta.env.VITE_API_BASE_URL
+
 
   useEffect(() => {
     const token =
@@ -13,7 +15,8 @@ export default function useRedirectIfAuthenticated(redirectTo = "/dashboard") {
 
     const verifyToken = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/verify", {
+
+        const response = await fetch(`${BASE_URL}/auth/verify`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
